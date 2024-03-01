@@ -30,9 +30,16 @@ Route::get('/loginUser', function () {
     return view('landingPage/login');
 });
 
+Route::get('/form', function () {
+    return view('landingPage/micro/form');
+});
+
 
 Route::get('/dashboard', function () {
     return view('admin/page/dashboard');
+});
+Route::get('/agent', function () {
+    return view('admin/page/data/agent');
 });
 Route::get('/perumahan', function () {
     return view('admin/page/data/perumahan');
