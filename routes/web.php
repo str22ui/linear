@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\HomeUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('/', [LandingPageController::class, 'index'])->name('landingPage.index');
+Route::get('/', [HomeUserController::class, 'index'])->name('landingPage.index');
 // Route::get('/makanan', [HomeController::class, 'makanan'])->name('makanan.index');
 Route::get('/about', function () {
     return view('landingPage/content/aboutUs');
