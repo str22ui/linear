@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,14 +14,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::post('/logout',  [AuthController::class, 'logout']);
 
 Route::get('/', [HomeUserController::class, 'index'])->name('landingPage.index');
 Route::get('/about', [HomeUserController::class, 'about']);
 Route::get('/services', [HomeUserController::class, 'service']);
 
-Route::get('/loginUser', function () {
-    return view('landingPage/login');
-});
+Route::get('/loginUser', [AuthController::class, 'login'])->name('login');
+Route::post('/loginUser', [AuthController::class, 'authenticate']);
 
 Route::get('/form', function () {
     return view('landingPage/micro/form');

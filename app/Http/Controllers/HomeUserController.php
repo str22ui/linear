@@ -22,6 +22,6 @@ class HomeUserController extends Controller
 
     public function service()
     {
-        return view('landingPage/content/services');
+        return view('landingPage.content.services');
     }
 }
