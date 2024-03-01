@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class UnitRumah extends Model
 {
     use HasFactory;
+
+    protected $guarded = [
+        'id'
+    ];
 }
