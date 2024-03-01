@@ -15,13 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeUserController::class, 'index'])->name('landingPage.index');
-// Route::get('/makanan', [HomeController::class, 'makanan'])->name('makanan.index');
-Route::get('/about', function () {
-    return view('landingPage/content/aboutUs');
-});
-Route::get('/services', function () {
-    return view('landingPage/content/services');
-});
+Route::get('/about', [HomeUserController::class, 'about']);
+Route::get('/services', [HomeUserController::class, 'service']);
 
 Route::get('/loginUser', function () {
     return view('landingPage/login');
