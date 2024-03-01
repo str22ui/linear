@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('konsumens', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->integer('no_wa');
+            $table->integer('no_hp');
             $table->string('domisili');
-            $table->string('alamat_ktp');
-            $table->enum('jk', ['laki-laki', 'perempuan']);
-            $table->date('tanggal_lahir');
+            $table->string('email');
+            $table->string('pekerjaan');
+            $table->string('sumber_informasi');
             $table->timestamps();
         });
     }
