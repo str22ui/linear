@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Unit;
 use App\Models\Agent;
 use App\Models\Konsumen;
-use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class FormKonsumenController extends Controller
 {

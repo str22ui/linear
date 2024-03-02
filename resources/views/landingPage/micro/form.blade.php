@@ -9,41 +9,41 @@
             <!-- Bagian kiri form -->
             <div class="text-white mx-5 bg-[#3A5EAA] ">
                 <div class="mb-5">
-                    <label for="nama" class="block mb-2 text-sm font-medium  dark:text-white">Nama</label>
+                    <label for="nama" class="form-label block mb-2 text-sm font-medium  dark:text-white">Nama</label>
                     <input type="text" id="name-input" name="nama"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <div class="mb-5">
-                    <label for="email" class="block mb-2 text-sm font-medium  dark:text-white">Email</label>
+                    <label for="email" class="form-label block mb-2 text-sm font-medium  dark:text-white">Email</label>
                     <input type="email" id="email-input" name="email"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <div class="mb-5">
-                    <label for="no_hp" class="block mb-2 text-sm font-medium  dark:text-white">Nomor
+                    <label for="no_hp" class="form-label block mb-2 text-sm font-medium  dark:text-white">Nomor
                         Telepon</label>
                     <input type="tel" id="phone-input" name="no_hp"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
             </div>
 
             <!-- Bagian kanan form -->
             <div class="text-white mx-5 ">
                 <div class="mb-5">
-                    <label for="domisili" class="block mb-2 text-sm font-medium  dark:text-white">Kota Tempat
+                    <label for="domisili" class="form-label block mb-2 text-sm font-medium  dark:text-white">Kota Tempat
                         Tinggal</label>
                     <input type="text" id="city-input" name="domisili"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <div class="mb-5">
-                    <label for="pekerjaan" class="block mb-2 text-sm font-medium  dark:text-white">Pekerjaan</label>
+                    <label for="pekerjaan" class="form-label block mb-2 text-sm font-medium  dark:text-white">Pekerjaan</label>
                     <input type="text" id="occupation-input" name="pekerjaan"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <div class="mb-5">
-                    <label for="sumber_informasi" class="block mb-2 text-sm font-medium  dark:text-white">Dapat
+                    <label for="sumber_informasi" class="form-label block mb-2 text-sm font-medium  dark:text-white">Dapat
                         Informasi Dari</label>
                     <select id="info-input" name="sumber_informasi"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        class="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option value="instagram">-- Pilih --</option>
                         <option value="instagram">Instagram</option>
                         <option value="youtube">Youtube</option>
@@ -56,10 +56,10 @@
                 </div>
                 <div class="agent flex w-full gap-2">
                     <div class="w-1/2">
-                        <label for="agent_id" class="block mb-2 text-sm font-medium  dark:text-white">Nama
+                        <label for="agent_id" class="form-label block mb-2 text-sm font-medium  dark:text-white">Nama
                             Agent</label>
                             <select id="agent_id" name="agent_id"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                class="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option value="pilih">-- Pilih --</option>
                                 @foreach ($agents as $agent)
                                     <option value="{{ $agent->id }}">{{ $agent->nama }}</option>
@@ -67,9 +67,9 @@
                             </select>
                     </div>
                     <div class="w-1/2">
-                        <label for="kantor" class="block mb-2 text-sm font-medium  dark:text-white">Kantor</label>
+                        <label for="kantor" class="form-label block mb-2 text-sm font-medium  dark:text-white">Kantor</label>
                             <select id="kantor" name="kantor"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                class="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option value="pilih">-- Pilih --</option>
                                 @foreach ($agents as $agent)
                                     <option value="{{ $agent->id }}">{{ $agent->kantor }}</option>
