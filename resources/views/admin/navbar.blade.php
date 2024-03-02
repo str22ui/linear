@@ -71,6 +71,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Perusahaan</h6>
                         <a class="collapse-item" href="/agent">Agent</a>
+                        <a class="collapse-item" href="/perumahan">Perumahan</a>
                         {{-- <a class="collapse-item" href="/perumahan">Perumahan</a>
                         <a class="collapse-item" href="/pembangunan">Pembangunan</a> --}}
                         {{-- <a class="collapse-item" href="cards.html" disabled>Unit Rumah</a>
