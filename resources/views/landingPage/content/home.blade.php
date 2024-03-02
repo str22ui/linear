@@ -42,94 +42,29 @@
             <h1 class="text-3xl font-bold">Our Ongoing Projects</h1>
         </div>
         <div class="flex space-x-3 justify-center items-center">
-
-            {{-- ===== Card 1 ===== --}}
-            <div
-                class="max-w-sm bg-[#D4E1FF] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            @foreach ($unit as $item)
+            <div class="max-w-sm bg-[#D4E1FF] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
                     <img class="rounded-t-lg" src="{{ asset('images/gevana.png') }}" alt="" />
                 </a>
                 <div class="p-5">
                     <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Gevana Residence
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $item->nama_perumahan }}
                         </h5>
                     </a>
                     <ul class="text-xl ">
-                        <li><i class="fa-solid fa-landmark-flag mr-3"></i><label for="">3.500 m2</label></li>
-                        <li><i class="fa-solid fa-house mr-3"></i><label for="">28 Unit</label></li>
-                        <li><i class="fa-solid fa-location-dot ml-1 mr-4 "></i><label for="">Cirendeu, Tangerang
-                                Selatan</label></li>
+                        <li><i class="fa-solid fa-landmark-flag mr-3"></i><label for="">{{ $item->luas }} m<sup>2</sup></label></li>
+                        <li><i class="fa-solid fa-house mr-3"></i><label for="">{{ $item->unit }} Unit</label></li>
+                        <li><i class="fa-solid fa-location-dot ml-1 mr-4 "></i><label for="">{{ $item->lokasi }}</label></li>
                     </ul>
                     <div class="text-center mt-8 ">
-                        <a href="/form"
-                            class="flex w-full  items-center justify-center px-3 py-2 text-xl font-medium  text-white bg-blue-700 rounded-2xl hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <a href="/form" class="flex w-full  items-center justify-center px-3 py-2 text-xl font-medium  text-white bg-blue-700 rounded-2xl hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Download Marketing Kit
-
                         </a>
                     </div>
-
                 </div>
             </div>
-            {{-- ===== /Card 1/ ===== --}}
-
-            {{-- ===== Card 2 ===== --}}
-            <div
-                class="max-w-sm bg-[#D4E1FF] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="{{ asset('images/naputa.png') }}" alt="" />
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Naputa
-                        </h5>
-                    </a>
-                    <ul class="text-xl ">
-                        <li><i class="fa-solid fa-landmark-flag mr-3"></i><label for="">1.383 m2</label></li>
-                        <li><i class="fa-solid fa-house mr-3"></i><label for="">14 Unit</label></li>
-                        <li><i class="fa-solid fa-location-dot ml-1 mr-4 "></i><label for="">Cirendeu, Tangerang
-                                Selatan</label></li>
-                    </ul>
-                    <div class="text-center mt-8 ">
-                        <a href="#"
-                            class="flex w-full  items-center justify-center px-3 py-2 text-xl font-medium  text-white bg-blue-700 rounded-2xl hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Download Marketing Kit
-
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-            {{-- ===== /Card 2/ ===== --}}
-
-            {{-- ===== Card 3 ===== --}}
-
-            <div
-                class="max-w-sm bg-[#D4E1FF] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="{{ asset('images/tahomi.png') }}" alt="" />
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Tahomi
-                        </h5>
-                    </a>
-                    <ul class="text-xl ">
-                        <li><i class="fa-solid fa-landmark-flag mr-3"></i><label for="">3.500 m2</label></li>
-                        <li><i class="fa-solid fa-house mr-3"></i><label for="">28 Unit</label></li>
-                        <li><i class="fa-solid fa-location-dot ml-1 mr-4 "></i><label for="">Cirendeu, Tangerang
-                                Selatan</label></li>
-                    </ul>
-                    <div class="text-center mt-8 ">
-                        <a href="#"
-                            class="flex w-full  items-center justify-center px-3 py-2 text-xl font-medium rounded-2xl text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Download Marketing Kit
-
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-            {{-- ===== /Card 3/ ===== --}}
+            @endforeach
         </div>
     </div>
     {{-- ============== /Our Ongoing Projects/ ============== --}}

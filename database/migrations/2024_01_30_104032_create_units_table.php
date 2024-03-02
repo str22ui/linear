@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
+            $table->string('foto')->nullable();
             $table->string('nama_perumahan');
-            $table->string('luas');
+            $table->integer('luas');
             $table->integer('unit');
             $table->string('lokasi');
-            $table->string('brosur');
+            $table->string('brosur')->nullable();
             $table->timestamps();
         });
     }
