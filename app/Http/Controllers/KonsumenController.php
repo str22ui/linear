@@ -8,7 +8,7 @@ use App\Models\Konsumen;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 
-class FormKonsumenController extends Controller
+class KonsumenController extends Controller
 {
     public function store(Request $request)
     {
