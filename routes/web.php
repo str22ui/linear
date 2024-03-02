@@ -20,11 +20,11 @@ use App\Http\Controllers\PerumahanController;
 Route::middleware(['auth'])->group(function(){
     Route::get('/logout',  [AuthController::class, 'logout']);
     
-    Route::get('/dashboard', [AdminController::class, 'index']);
-    Route::get('/agent', [AdminController::class, 'agent']);
-    Route::post('/agent/create', [AdminController::class, 'store']);
-    Route::get('/perumahan', [AdminController::class, 'perumahan']);
-    Route::get('/pembangunan', [AdminController::class, 'pembangunan']);
+    Route::get('/dashboard', [AdminController::class, 'index'])->middleware('userAkses:admin');
+    Route::get('/agent', [AdminController::class, 'agent'])->middleware('userAkses:admin');
+    Route::post('/agent/create', [AdminController::class, 'store'])->middleware('userAkses:admin');
+    Route::get('/perumahan', [AdminController::class, 'perumahan'])->middleware('userAkses:admin');
+    Route::get('/pembangunan', [AdminController::class, 'pembangunan'])->middleware('userAkses:admin');
 
     Route::post('/perumahan/create', [PerumahanController::class, 'store']);
 });
