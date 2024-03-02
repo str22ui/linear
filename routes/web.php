@@ -36,6 +36,7 @@ Route::get('/', [HomeUserController::class, 'index'])->name('landingPage.index')
 Route::get('/about', [HomeUserController::class, 'about']);
 Route::get('/services', [HomeUserController::class, 'service']);
 Route::get('/form/{id}', [HomeUserController::class, 'show']);
-Route::get('/download-pdf/{id}', [HomeUserController::class, 'downloadPDF'])->name('download.pdf');
+
+Route::get('/download-brosur/{id}', [PerumahanController::class, 'downloadBrosur'])->name('download.brosur');
 
 Route::post('/form/{id}/create', [KonsumenController::class, 'store']);
