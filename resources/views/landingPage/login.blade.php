@@ -41,7 +41,7 @@
             <div class="max-w-md w-full p-6 bg-white shadow-md rounded-md">
                 <h1 class="text-3xl font-bold text-gray-950 mb-10 text-center">Sign in </h1>
                 {{-- <label>Please fill with your username and password</label> --}}
-                <form action="/login" method="POST">
+                <form action="/loginUser" method="POST">
                     @csrf
                     <div class="mb-4">
                         <label for="username" class="block text-gray-600 text-sm font-medium mb-2">Email</label>

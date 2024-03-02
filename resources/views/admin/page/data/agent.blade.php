@@ -13,17 +13,17 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Agent</h6>
         </div>
         <div class="card-body">
-            <form action="#" method="POST" class="row g-3">
+            <form action="/agent/create" method="POST" class="row g-3">
                 @csrf
                 <!-- Bagian kiri form -->
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="name" class="form-label">Nama Agent</label>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <label for="nama" class="form-label">Nama Agent</label>
+                        <input type="text" class="form-control" id="nama" name="nama">
                     </div>
                     <div class="mb-3">
-                        <label for="type" class="form-label">Tipe Agent</label><br>
-                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <label for="tipe" class="form-label">Tipe Agent</label><br>
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="tipe" name="tipe">
                             <option selected disabled>-- Pilih --</option>
 
                             <option value="korporat">Korporat</option>
@@ -36,12 +36,12 @@
                 <!-- Bagian kanan form -->
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="office" class="form-label">Kantor Agent</label>
-                        <input type="text" class="form-control" id="office" name="office">
+                        <label for="kantor" class="form-label">Kantor Agent</label>
+                        <input type="text" class="form-control" id="kantor" name="kantor">
                     </div>
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Nomor Telepon Agent</label>
-                        <input type="text" class="form-control" id="phone" name="phone">
+                        <label for="no_hp" class="form-label">Nomor Telepon Agent</label>
+                        <input type="text" class="form-control" id="no_hp" name="no_hp">
                     </div>
                 </div>
                 <div class="col-12 text-center">

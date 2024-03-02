@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FormKonsumenController;
 use App\Http\Controllers\HomeUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,26 +16,21 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::post('/logout',  [AuthController::class, 'logout']);
+Route::get('/loginUser', [AuthController::class, 'login'])->name('login');
+Route::post('/loginUser', [AuthController::class, 'authenticate']);
+Route::get('/logout',  [AuthController::class, 'logout']);
 
 Route::get('/', [HomeUserController::class, 'index'])->name('landingPage.index');
 Route::get('/about', [HomeUserController::class, 'about']);
 Route::get('/services', [HomeUserController::class, 'service']);
+Route::get('/form/{id}', [HomeUserController::class, 'show']);
 
-Route::get('/loginUser', [AuthController::class, 'login'])->name('login');
-Route::post('/loginUser', [AuthController::class, 'authenticate']);
-
-Route::get('/form', function () {
-    return view('landingPage/micro/form');
-});
+Route::post('/form/{id}/create', [FormKonsumenController::class, 'store']);
 
 
-Route::get('/dashboard', function () {
-    return view('admin/page/dashboard');
-});
-Route::get('/agent', function () {
-    return view('admin/page/data/agent');
-});
+Route::get('/dashboard', [AdminController::class, 'index']);
+Route::get('/agent', [AdminController::class, 'agent']);
+Route::post('/agent/create', [AdminController::class, 'store']);
 Route::get('/perumahan', function () {
     return view('admin/page/data/perumahan');
 });

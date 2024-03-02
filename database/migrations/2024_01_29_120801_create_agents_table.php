@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('kantor');
             $table->string('tipe');
-            $table->integer('no_hp');
+            $table->string('no_hp');
             $table->timestamps();
         });
     }

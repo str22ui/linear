@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('konsumens', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->integer('no_hp');
+            $table->string('no_hp');
             $table->string('domisili');
             $table->string('email');
             $table->string('pekerjaan');
             $table->string('sumber_informasi');
             $table->unsignedBigInteger('agent_id');
+            $table->string('kantor');
             $table->timestamps();
 
             $table->foreign('agent_id')->references('id')->on('agents')->onDelete('restrict');

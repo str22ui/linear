@@ -3,24 +3,25 @@
 
 @section('content')
     <div class="mx-5 mt-24 mb-10  ">
-        <h2 class="text-2xl text-center font-bold mb-6">Form Perumahan Naputa </h2>
-        <form action="" class=" bg-[#3A5EAA] px-5 py-5 grid grid-cols-2 gap-4 text-col rounded-md">
+        <h2 class="text-2xl text-center font-bold mb-6">Form Perumahan {{ $units->nama_perumahan }} </h2>
+        <form method="POST" action="/form/{id}/create" class=" bg-[#3A5EAA] px-5 py-5 grid grid-cols-2 gap-4 text-col rounded-md">
+            @csrf
             <!-- Bagian kiri form -->
             <div class="text-white mx-5 bg-[#3A5EAA] ">
                 <div class="mb-5">
-                    <label for="name-input" class="block mb-2 text-sm font-medium  dark:text-white">Nama</label>
-                    <input type="text" id="name-input"
+                    <label for="nama" class="block mb-2 text-sm font-medium  dark:text-white">Nama</label>
+                    <input type="text" id="name-input" name="nama"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <div class="mb-5">
-                    <label for="email-input" class="block mb-2 text-sm font-medium  dark:text-white">Email</label>
-                    <input type="email" id="email-input"
+                    <label for="email" class="block mb-2 text-sm font-medium  dark:text-white">Email</label>
+                    <input type="email" id="email-input" name="email"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <div class="mb-5">
-                    <label for="phone-input" class="block mb-2 text-sm font-medium  dark:text-white">Nomor
+                    <label for="no_hp" class="block mb-2 text-sm font-medium  dark:text-white">Nomor
                         Telepon</label>
-                    <input type="tel" id="phone-input"
+                    <input type="tel" id="phone-input" name="no_hp"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
             </div>
@@ -28,20 +29,20 @@
             <!-- Bagian kanan form -->
             <div class="text-white mx-5 ">
                 <div class="mb-5">
-                    <label for="city-input" class="block mb-2 text-sm font-medium  dark:text-white">Kota Tempat
+                    <label for="domisili" class="block mb-2 text-sm font-medium  dark:text-white">Kota Tempat
                         Tinggal</label>
-                    <input type="text" id="city-input"
+                    <input type="text" id="city-input" name="domisili"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <div class="mb-5">
-                    <label for="occupation-input" class="block mb-2 text-sm font-medium  dark:text-white">Pekerjaan</label>
-                    <input type="text" id="occupation-input"
+                    <label for="pekerjaan" class="block mb-2 text-sm font-medium  dark:text-white">Pekerjaan</label>
+                    <input type="text" id="occupation-input" name="pekerjaan"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <div class="mb-5">
-                    <label for="info-input" class="block mb-2 text-sm font-medium  dark:text-white">Dapat
+                    <label for="sumber_informasi" class="block mb-2 text-sm font-medium  dark:text-white">Dapat
                         Informasi Dari</label>
-                    <select id="info-input"
+                    <select id="info-input" name="sumber_informasi"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option value="instagram">-- Pilih --</option>
                         <option value="instagram">Instagram</option>
@@ -55,27 +56,34 @@
                 </div>
                 <div class="agent flex w-full gap-2">
                     <div class="w-1/2">
-                        <label for="occupation-input" class="block mb-2 text-sm font-medium  dark:text-white">Nama
+                        <label for="agent_id" class="block mb-2 text-sm font-medium  dark:text-white">Nama
                             Agent</label>
-                        <input type="text" id="occupation-input"
-                            class="bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select id="agent_id" name="agent_id"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="pilih">-- Pilih --</option>
+                                @foreach ($agents as $agent)
+                                    <option value="{{ $agent->id }}">{{ $agent->nama }}</option>
+                                @endforeach
+                            </select>
                     </div>
                     <div class="w-1/2">
-                        <label for="occupation-input" class="block mb-2 text-sm font-medium  dark:text-white">Kantor</label>
-                        <input type="text" id="occupation-input"
+                        <label for="kantor" class="block mb-2 text-sm font-medium  dark:text-white">Kantor</label>
+                            <select id="kantor" name="kantor"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="pilih">-- Pilih --</option>
+                                @foreach ($agents as $agent)
+                                    <option value="{{ $agent->id }}">{{ $agent->kantor }}</option>
+                                @endforeach
+                            </select>
                     </div>
                 </div>
             </div>
 
-
-
+            <div class=" w-full mx-auto mt-8 text-center">
+                <button type="submit" name="submit"
+                    class="text-white  mx-auto w-1/4 bg-[#3A5EAA] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Submit</button>
+            </div>
         </form>
-        <div class=" w-full mx-auto mt-8 text-center">
-            <button type="button"
-                class="text-white  mx-auto w-1/4 bg-[#3A5EAA] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Submit</button>
-        </div>
-
     </div>
 
 @endsection

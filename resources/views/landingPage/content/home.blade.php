@@ -58,7 +58,7 @@
                         <li><i class="fa-solid fa-location-dot ml-1 mr-4 "></i><label for="">{{ $item->lokasi }}</label></li>
                     </ul>
                     <div class="text-center mt-8 ">
-                        <a href="/form" class="flex w-full  items-center justify-center px-3 py-2 text-xl font-medium  text-white bg-blue-700 rounded-2xl hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <a href="/form/{{ $item->id }}" class="flex w-full  items-center justify-center px-3 py-2 text-xl font-medium  text-white bg-blue-700 rounded-2xl hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Download Marketing Kit
                         </a>
                     </div>
