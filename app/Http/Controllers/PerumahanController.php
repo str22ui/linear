@@ -32,19 +32,6 @@ class PerumahanController extends Controller
         return redirect('/dashboard');
     }
 
-    // public function downloadBrosur($id)
-    // {
-    //     $unit = Unit::findOrFail($id);
-
-    //     $pathBrosur = $unit->brosur;
-
-    //     $data = ['units' => $unit, 'brosur_path' => $pathBrosur];
-        
-    //     $viewPath = public_path('storage/pdf/'.$pathBrosur);
-    //     $pdf = app('dompdf.wrapper')->loadView($viewPath, $data);
-    //     return $pdf->download($unit->nama_perumahan . '.pdf');
-    // }
-
     public function downloadBrosur($id)
     {
         $brosur = DB::table('units')->where('id', $id)->first();
