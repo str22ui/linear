@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('pekerjaan');
             $table->string('sumber_informasi');
-            $table->unsignedBigInteger('agent_id');
-            $table->string('kantor');
+            $table->unsignedBigInteger('agent_id')->nullable();
+            $table->string('kantor')->nullable();
             $table->timestamps();
 
             $table->foreign('agent_id')->references('id')->on('agents')->onDelete('restrict');
