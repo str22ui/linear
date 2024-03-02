@@ -19,8 +19,8 @@ class KonsumenController extends Controller
             'domisili' => 'required',
             'pekerjaan' => 'required',
             'sumber_informasi' => 'required',
-            'agent_id' => 'required|exists:agents,id',
-            'kantor' => 'required',
+            'agent_id' => 'sometimes|exists:agents,id',
+            'kantor' => 'sometimes',
         ]);
             
         Konsumen::create($validatedData);
