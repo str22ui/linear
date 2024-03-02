@@ -22,6 +22,20 @@ class AdminController extends Controller
         ]);
     }
 
+    public function perumahan()
+    {
+        return view('admin.page.data.perumahan', [
+            'users' => Auth::user(),
+        ]);
+    }
+
+    public function pembangunan()
+    {
+        return view('admin.page.data.pembangunan', [
+            'users' => Auth::user(),
+        ]);
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
