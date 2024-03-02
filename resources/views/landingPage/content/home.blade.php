@@ -45,7 +45,11 @@
             @foreach ($unit as $item)
             <div class="max-w-sm bg-[#D4E1FF] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
-                    <img class="rounded-t-lg" src="{{ asset('images/gevana.png') }}" alt="" />
+                    @if ($item->foto)
+                        <img class="rounded-t-lg" src="{{ asset('storage/' . $item->foto) }}" alt="" />
+                    @else
+                        <img src="https://source.unsplash.com/1417x745/?house" class="d-block w-100 rounded-4" alt="...">
+                    @endif
                 </a>
                 <div class="p-5">
                     <a href="#">
