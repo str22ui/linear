@@ -85,7 +85,7 @@
             <div class=" w-full mx-auto mt-8 text-center">
                 <button type="submit" name="submit"
                     class="text-white  mx-auto w-1/4 bg-[#3A5EAA] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Submit</button>
-                <a href="{{ route('download.brosur', ['id' => $units->id]) }}" target="_blank" class="text-white mx-auto w-1/4 bg-[#3A5EAA] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Download PDF</a>
+                <a href="{{ url('/download-brosur/'.$units->id) }}" target="_blank" class="text-white mx-auto w-1/4 bg-[#3A5EAA] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Download PDF</a>
             </div>
         </form>
     </div>

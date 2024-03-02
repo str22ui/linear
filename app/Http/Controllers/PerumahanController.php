@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Unit;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 
 class PerumahanController extends Controller
@@ -46,16 +47,8 @@ class PerumahanController extends Controller
 
     public function downloadBrosur($id)
     {
-        $unit = Unit::findOrFail($id);
-
-        // Pastikan $unit->brosur berisi path relatif dari direktori penyimpanan publik
-        $brosurPath = storage_path('app/public/brosur/' . $unit->brosur);
-
-        // Gunakan file_get_contents setelah memastikan path file yang benar
-        $pdfContent = file_get_contents($brosurPath);
-
-        return response($pdfContent)
-            ->header('Content-Type', 'application/pdf')
-            ->header('Content-Disposition', 'inline; filename="' . $unit->nama_perumahan . '.pdf"');
+        $brosur = DB::table('units')->where('id', $id)->first();
+        $pathToFile = storage_path("app/public/{$brosur->brosur}");
+        return Response::download($pathToFile);
     }
 }
