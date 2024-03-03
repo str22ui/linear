@@ -17,16 +17,30 @@ use App\Http\Controllers\PerumahanController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::middleware(['auth'])->group(function(){
+
+Route::middleware(['auth'])->group(function () {
     Route::get('/logout',  [AuthController::class, 'logout']);
-    
+
     Route::get('/dashboard', [AdminController::class, 'index'])->middleware('userAkses:admin');
+    Route::get('/dashAgent', [AdminController::class, 'dashAgent'])->middleware('userAkses:admin');
     Route::get('/agent', [AdminController::class, 'agent'])->middleware('userAkses:admin');
     Route::post('/agent/create', [AdminController::class, 'store'])->middleware('userAkses:admin');
+    Route::post('/agent/{id}', [AdminController::class, 'editAgent'])->middleware('userAkses:admin');
+    Route::post('/agent/update/{id}', [AdminController::class, 'updateAgent']);
+    Route::delete('/agent/{id}', [AdminController::class, 'deleteAgent'])->middleware('userAkses:admin');
+
+    Route::get('/dashPerumahan', [AdminController::class, 'dashPerumahan'])->middleware('userAkses:admin');
     Route::get('/perumahan', [AdminController::class, 'perumahan'])->middleware('userAkses:admin');
+   
+
+
+    Route::get('/dashKonsumen', [AdminController::class, 'dashKonsum'])->middleware('userAkses:admin');
     Route::get('/pembangunan', [AdminController::class, 'pembangunan'])->middleware('userAkses:admin');
 
     Route::post('/perumahan/create', [PerumahanController::class, 'store']);
+    Route::post('/perumahan/{id}', [AdminController::class, 'editPerumahan'])->middleware('userAkses:admin');
+    Route::post('/perumahan/update/{id}', [AdminController::class, 'updatePerumahan']);
+    Route::delete('/perumahan/{id}', [AdminController::class, 'deletePerumahan'])->middleware('userAkses:admin');
 });
 
 Route::get('/loginUser', [AuthController::class, 'login'])->name('login')->middleware('guest');

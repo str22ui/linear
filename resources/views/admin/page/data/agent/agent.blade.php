@@ -23,7 +23,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="tipe" class="form-label">Tipe Agent</label><br>
-                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="tipe" name="tipe">
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="tipe"
+                            name="tipe">
                             <option selected disabled>-- Pilih --</option>
 
                             <option value="korporat">Korporat</option>
@@ -44,9 +45,11 @@
                         <input type="text" class="form-control" id="no_hp" name="no_hp">
                     </div>
                 </div>
+
                 <div class="col-12 text-center">
                     <button type="submit" class="btn btn-primary btn-block">Submit</button>
                 </div>
+
             </form>
         </div>
     </div>

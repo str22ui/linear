@@ -7,7 +7,8 @@
             <h1>{{ $error }}</h1>
         @endforeach
         <h2 class="text-2xl text-center font-bold mb-6">Form Perumahan {{ $units->nama_perumahan }} </h2>
-        <form method="POST" action="/form/{id}/create" class=" bg-[#3A5EAA] px-5 py-5 grid grid-cols-2 gap-4 text-col rounded-md">
+        <form method="POST" action="/form/{id}/create"
+            class=" bg-[#3A5EAA] px-5 py-5 grid grid-cols-2 gap-4 text-col rounded-md">
             @csrf
             <!-- Bagian kiri form -->
             <div class="text-white mx-5 bg-[#3A5EAA] ">
@@ -38,7 +39,8 @@
                         class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <div class="mb-5">
-                    <label for="pekerjaan" class="form-label block mb-2 text-sm font-medium  dark:text-white">Pekerjaan</label>
+                    <label for="pekerjaan"
+                        class="form-label block mb-2 text-sm font-medium  dark:text-white">Pekerjaan</label>
                     <input type="text" id="occupation-input" name="pekerjaan"
                         class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
@@ -61,23 +63,24 @@
                     <div class="w-1/2">
                         <label for="agent_id" class="form-label block mb-2 text-sm font-medium  dark:text-white">Nama
                             Agent</label>
-                            <select id="agent_id" name="agent_id"
-                                class="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <option value="pilih">-- Pilih --</option>
-                                @foreach ($agents as $agent)
-                                    <option value="{{ $agent->id }}">{{ $agent->nama }}</option>
-                                @endforeach
-                            </select>
+                        <select id="agent_id" name="agent_id"
+                            class="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value="pilih">-- Pilih --</option>
+                            @foreach ($agents as $agent)
+                                <option value="{{ $agent->id }}">{{ $agent->nama }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="w-1/2">
-                        <label for="kantor" class="form-label block mb-2 text-sm font-medium  dark:text-white">Kantor</label>
-                            <select id="kantor" name="kantor"
-                                class="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <option value="pilih">-- Pilih --</option>
-                                @foreach ($agents as $agent)
-                                    <option value="{{ $agent->id }}">{{ $agent->kantor }}</option>
-                                @endforeach
-                            </select>
+                        <label for="kantor"
+                            class="form-label block mb-2 text-sm font-medium  dark:text-white">Kantor</label>
+                        <select id="kantor" name="kantor"
+                            class="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value="pilih">-- Pilih --</option>
+                            @foreach ($agents as $agent)
+                                <option value="{{ $agent->id }}">{{ $agent->kantor }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
             </div>
@@ -85,7 +88,9 @@
             <div class=" w-full mx-auto mt-8 text-center">
                 <button type="submit" name="submit"
                     class="text-white  mx-auto w-1/4 bg-[#3A5EAA] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Submit</button>
-                <a href="{{ url('/download-brosur/'.$units->id) }}" target="_blank" class="text-white mx-auto w-1/4 bg-[#3A5EAA] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Download PDF</a>
+                <a href="{{ url('/download-brosur/' . $units->id) }}" target="_blank"
+                    class="text-white mx-auto w-1/4 bg-[#3A5EAA] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Download
+                    PDF</a>
             </div>
         </form>
     </div>

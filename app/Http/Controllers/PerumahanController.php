@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Response;
 
 class PerumahanController extends Controller
 {
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -20,16 +21,16 @@ class PerumahanController extends Controller
             'lokasi' => 'required',
             'brosur' => 'required|file|max:20480|mimes:pdf,doc,docx,ppt,pptx'
         ]);
-            
+
         if ($request->hasFile('foto')) {
-            $validatedData['foto'] = $request->file('foto')->storeAs('foto-perumahan', uniqid().'.'.$request->file('foto')->extension());
+            $validatedData['foto'] = $request->file('foto')->storeAs('foto-perumahan', uniqid() . '.' . $request->file('foto')->extension());
         }
         if ($request->hasFile('brosur')) {
-            $validatedData['brosur'] = $request->file('brosur')->storeAs('brosur', uniqid().'.'.$request->file('brosur')->extension());
+            $validatedData['brosur'] = $request->file('brosur')->storeAs('brosur', uniqid() . '.' . $request->file('brosur')->extension());
         }
-            
+
         Unit::create($validatedData);
-        return redirect('/dashboard');
+        return redirect('/dashPerumahan');
     }
 
     public function downloadBrosur($id)
