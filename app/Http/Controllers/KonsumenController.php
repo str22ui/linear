@@ -10,6 +10,10 @@ use Illuminate\Database\QueryException;
 
 class KonsumenController extends Controller
 {
+    public function agent()
+    {
+        return $this->belongsTo(Agent::class, 'id');
+    }
     public function store(Request $request, $id)
     {
         $validatedData = $request->validate([
@@ -18,6 +22,8 @@ class KonsumenController extends Controller
             'no_hp' => 'required',
             'domisili' => 'required',
             'pekerjaan' => 'required',
+            'nama_kantor' => 'required',
+            'perumahan' => 'required',
             'sumber_informasi' => 'required',
             'agent_id' => 'nullable',
             'kantor' => 'nullable',

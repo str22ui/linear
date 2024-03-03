@@ -134,12 +134,26 @@ class AdminController extends Controller
         ]);
     }
 
+    public function deleteKonsumen($id)
+    {
+        $konsumen = Konsumen::find($id);
+
+        if (!$konsumen) {
+            return redirect()->back()->with('error', 'Konsumen not found.');
+        }
+
+        $konsumen->delete();
+
+        return redirect()->back()->with('success', 'Konsumen deleted successfully.');
+    }
+
     public function perumahan()
     {
         return view('admin.page.data.perumahan.perumahan', [
             'users' => Auth::user(),
         ]);
     }
+
 
     public function pembangunan()
     {

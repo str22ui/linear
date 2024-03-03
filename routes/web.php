@@ -35,6 +35,9 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('/dashKonsumen', [AdminController::class, 'dashKonsum'])->middleware('userAkses:admin');
+    // Route::delete('/konsumen/{id}', [AdminController::class, 'deleteKonsumen'])->middleware('userAkses:admin');
+    Route::delete('/konsumen/{id}', [AdminController::class, 'deleteKonsumen'])->name('konsumen.destroy')->middleware('userAkses:admin');
+
     Route::get('/pembangunan', [AdminController::class, 'pembangunan'])->middleware('userAkses:admin');
 
     Route::post('/perumahan/create', [PerumahanController::class, 'store']);
@@ -58,5 +61,6 @@ Route::get('/download-pdf', function () {
 
 // Route::get('/download-brosur/{id}', [PerumahanController::class, 'downloadBrosur'])->name('download.brosur');
 Route::get('/download-brosur/{id}', [PerumahanController::class, 'downloadBrosur'])->name('download.brosur');
+Route::get('/download-pricelist/{id}', [PerumahanController::class, 'downloadPricelist'])->name('download.pricelist');
 
 Route::post('/form-create/{id}', [KonsumenController::class, 'store']);

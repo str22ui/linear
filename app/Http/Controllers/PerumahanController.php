@@ -19,7 +19,8 @@ class PerumahanController extends Controller
             'luas' => 'required',
             'unit' => 'required',
             'lokasi' => 'required',
-            'brosur' => 'required|file|max:20480|mimes:pdf,doc,docx,ppt,pptx'
+            'brosur' => 'required|file|max:20480|mimes:pdf,doc,docx,ppt,pptx',
+            'pricelist' => 'required|file|max:20480|mimes:pdf,doc,docx,ppt,pptx'
         ]);
 
         if ($request->hasFile('foto')) {
@@ -28,7 +29,9 @@ class PerumahanController extends Controller
         if ($request->hasFile('brosur')) {
             $validatedData['brosur'] = $request->file('brosur')->storeAs('brosur', uniqid() . '.' . $request->file('brosur')->extension());
         }
-
+        if ($request->hasFile('pricelist')) {
+            $validatedData['pricelist'] = $request->file('pricelist')->storeAs('pricelist', uniqid() . '.' . $request->file('pricelist')->extension());
+        }
         Unit::create($validatedData);
         return redirect('/dashPerumahan');
     }
@@ -40,15 +43,27 @@ class PerumahanController extends Controller
     //     return Response::download($pathToFile);
     // }
     public function downloadBrosur($id)
-{
-    $brosur = DB::table('units')->where('id', $id)->first();
+    {
+        $brosur = DB::table('units')->where('id', $id)->first();
 
-    if($brosur) {
-        $pathToFile = storage_path("app/public/{$brosur->brosur}");
-        return Response::download($pathToFile);
-    } else {
-        // Tambahkan logika untuk menangani jika brosur tidak ditemukan
-        return redirect()->back()->with('error', 'Brosur tidak ditemukan');
+        if ($brosur) {
+            $pathToFile = storage_path("app/public/{$brosur->brosur}");
+            return Response::download($pathToFile);
+        } else {
+            // Tambahkan logika untuk menangani jika brosur tidak ditemukan
+            return redirect()->back()->with('error', 'Brosur tidak ditemukan');
+        }
     }
-}
+    public function downloadPricelist($id)
+    {
+        $pricelist = DB::table('units')->where('id', $id)->first();
+
+        if ($pricelist) {
+            $pathToFile = storage_path("app/public/{$pricelist->pricelist}");
+            return Response::download($pathToFile);
+        } else {
+            // Tambahkan logika untuk menangani jika brosur tidak ditemukan
+            return redirect()->back()->with('error', 'Pricelist tidak ditemukan');
+        }
+    }
 }

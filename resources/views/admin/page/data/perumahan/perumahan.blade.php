@@ -18,7 +18,7 @@
                 <!-- Bagian kiri form -->
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="foto" class="form-label">Foto</label>
+                        <label for="foto" class="form-label">Foto (.jpg,.png.,jpeg)</label>
                         <input type="file" class="form-control" id="foto" name="foto">
                     </div>
                     <div class="mb-3">
@@ -30,21 +30,25 @@
                         <input type="text" class="form-control" id="luas" name="luas">
                     </div>
 
-
-                </div>
-                <!-- Bagian kanan form -->
-                <div class="col-md-6">
                     <div class="mb-3">
                         <label for="unit" class="form-label">Jumlah Unit</label>
                         <input type="text" class="form-control" id="unit" name="unit">
                     </div>
+                </div>
+                <!-- Bagian kanan form -->
+                <div class="col-md-6">
+                  
                     <div class="mb-3">
                         <label for="lokasi" class="form-label">Lokasi</label>
                         <input type="text" class="form-control" id="lokasi" name="lokasi">
                     </div>
                     <div class="mb-3">
-                        <label for="brosur" class="form-label">Brosur</label>
+                        <label for="brosur" class="form-label">Brosur(.pdf)</label>
                         <input type="file" class="form-control" id="brosur" name="brosur">
+                    </div>
+                    <div class="mb-3">
+                        <label for="pricelist" class="form-label">Pricelist(.pdf)</label>
+                        <input type="file" class="form-control" id="pricelist" name="pricelist">
                     </div>
 
                 </div>
