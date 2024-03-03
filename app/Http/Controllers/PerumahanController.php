@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Response;
 
 class PerumahanController extends Controller
 {
-  
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -30,7 +30,7 @@ class PerumahanController extends Controller
         }
 
         Unit::create($validatedData);
-        return redirect('/dashboard');
+        return redirect('/dashPerumahan');
     }
 
     public function downloadBrosur($id)
