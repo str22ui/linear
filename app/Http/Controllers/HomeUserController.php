@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Team;
 use App\Models\Unit;
 use App\Models\Agent;
-use Barryvdh\DomPDF\PDF;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Auth;
 
 class HomeUserController extends Controller
 {
@@ -23,7 +21,7 @@ class HomeUserController extends Controller
     {
         $team = Team::all();
         return view('landingPage.content.aboutUs', [
-            'team' => $team,
+            'teams' => $team,
         ]);
     }
 
@@ -37,6 +35,13 @@ class HomeUserController extends Controller
         return view('landingPage.micro.form', [
             'units' => Unit::findOrFail($id),
             'agents' => Agent::all(),
+        ]);
+    }
+
+    public function download($id)
+    {
+        return view('landingPage.micro.download', [
+            'units' => Unit::findOrFail($id),
         ]);
     }
 }

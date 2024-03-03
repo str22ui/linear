@@ -10,7 +10,7 @@ use Illuminate\Database\QueryException;
 
 class KonsumenController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $validatedData = $request->validate([
             'nama' => 'required',
@@ -22,6 +22,7 @@ class KonsumenController extends Controller
             'agent_id' => 'nullable',
             'kantor' => 'nullable',
         ]);
+        $unit = Unit::findOrFail($id);
 
         if ($request->input('agent_id') == 'pilih') {
             $validatedData['agent_id'] = null;
@@ -31,6 +32,7 @@ class KonsumenController extends Controller
         }
             
         Konsumen::create($validatedData);
-        return redirect('/');
+        // return redirect('form/download/'. $unit->id);
+        return redirect()->route('download.form', ['id' => $unit->id]);
     }
 }
