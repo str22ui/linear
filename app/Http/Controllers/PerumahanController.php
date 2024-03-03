@@ -33,10 +33,22 @@ class PerumahanController extends Controller
         return redirect('/dashPerumahan');
     }
 
+    // public function downloadBrosur($id)
+    // {
+    //     $brosur = DB::table('units')->where('id', $id)->first();
+    //     $pathToFile = storage_path("app/public/{$brosur->brosur}");
+    //     return Response::download($pathToFile);
+    // }
     public function downloadBrosur($id)
-    {
-        $brosur = DB::table('units')->where('id', $id)->first();
+{
+    $brosur = DB::table('units')->where('id', $id)->first();
+
+    if($brosur) {
         $pathToFile = storage_path("app/public/{$brosur->brosur}");
         return Response::download($pathToFile);
+    } else {
+        // Tambahkan logika untuk menangani jika brosur tidak ditemukan
+        return redirect()->back()->with('error', 'Brosur tidak ditemukan');
     }
+}
 }

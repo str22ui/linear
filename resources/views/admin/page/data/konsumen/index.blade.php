@@ -4,7 +4,7 @@
 
 @section('page')
 
-    <h1 class="h3 mb-2 text-gray-800">Data Agent</h1>
+    <h1 class="h3 mb-2 text-gray-800">Data Konsumen</h1>
     {{-- <p class="mb-4">Data Agent</a>.</p> --}}
 
     <!-- DataTales Example -->
