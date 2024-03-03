@@ -47,7 +47,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -70,9 +70,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Perusahaan</h6>
-                        <a class="collapse-item" href="/perumahan">Perumahan</a>
+                        <a class="collapse-item" href="/dashPerumahan">Perumahan</a>
                         <a class="collapse-item" href="/konsumen">Konsumen</a>
-                        <a class="collapse-item" href="/agent">Agent</a>
+                        <a class="collapse-item" href="/dashAgent">Agent</a>
                         {{-- <a class="collapse-item" href="/perumahan">Perumahan</a>
                         <a class="collapse-item" href="/pembangunan">Pembangunan</a> --}}
                         {{-- <a class="collapse-item" href="cards.html" disabled>Unit Rumah</a>
@@ -207,7 +207,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ $users->username }}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    {{-- {{ $users->username }} --}}
+                                </span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
