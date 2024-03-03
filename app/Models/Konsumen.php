@@ -12,4 +12,9 @@ class Konsumen extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function agent()
+    {
+        return $this->belongsTo(Agent::class, 'agent_id');
+    }
 }
