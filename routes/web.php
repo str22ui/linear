@@ -31,7 +31,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashPerumahan', [AdminController::class, 'dashPerumahan'])->middleware('userAkses:admin');
     Route::get('/perumahan', [AdminController::class, 'perumahan'])->middleware('userAkses:admin');
-   
+
 
 
     Route::get('/dashKonsumen', [AdminController::class, 'dashKonsum'])->middleware('userAkses:admin');
@@ -52,6 +52,11 @@ Route::get('/services', [HomeUserController::class, 'service']);
 Route::get('/form/{id}', [HomeUserController::class, 'show']);
 Route::get('/form-download/{id}', [HomeUserController::class, 'download'])->name('download.form');
 
+Route::get('/download-pdf', function () {
+    return view('landingpage.micro.download');
+})->name('download.pdf');
+
+// Route::get('/download-brosur/{id}', [PerumahanController::class, 'downloadBrosur'])->name('download.brosur');
 Route::get('/download-brosur/{id}', [PerumahanController::class, 'downloadBrosur'])->name('download.brosur');
 
 Route::post('/form-create/{id}', [KonsumenController::class, 'store']);

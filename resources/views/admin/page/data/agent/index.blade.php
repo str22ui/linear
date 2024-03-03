@@ -1,3 +1,4 @@
+
 @extends('admin.navbar')
 
 @section('titleAdmin', 'Agent')

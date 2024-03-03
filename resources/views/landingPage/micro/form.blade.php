@@ -8,7 +8,11 @@
             class=" bg-[#3A5EAA] px-5 py-5 grid grid-cols-2 gap-4 text-col rounded-md">
             @csrf
             <!-- Bagian kiri form -->
+
+
             <div class="text-white mx-5 bg-[#3A5EAA] ">
+                <button type="button"
+                    class="text-blue-500 font-medium rounded-lg text-sm px-3 py-1 bg-white mb-4">{{ $units->nama_perumahan }}</button>
                 <div class="mb-5">
                     <label for="nama" class="form-label block mb-2 text-sm font-medium  dark:text-white">Nama</label>
                     <input type="text" id="name-input" name="nama"
@@ -28,7 +32,8 @@
             </div>
 
             <!-- Bagian kanan form -->
-            <div class="text-white mx-5 ">
+            <div class="text-white mx-5 mt-10">
+
                 <div class="mb-5">
                     <label for="domisili" class="form-label block mb-2 text-sm font-medium  dark:text-white">Kota Tempat
                         Tinggal</label>
@@ -83,17 +88,21 @@
             </div>
 
             <div class=" w-full mx-auto mt-8 text-center">
-                <button type="submit" name="submit"
-                    class="text-white  mx-auto w-1/4 bg-[#3A5EAA] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Submit</button>
+                <button type="button"
+                    class="text-blue-500  mx-auto w-1/4 bg-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Submit
+                </button>
                 <a href="{{ url('/download-brosur/' . $units->id) }}" target="_blank"
                     class="text-white mx-auto w-1/4 bg-[#3A5EAA] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Download
                     PDF</a>
             </div>
         </form>
     </div>
-
+    
 @endsection
 <script>
+   
     // Mendapatkan elemen dropdown
     var infoInput = document.getElementById('info-input');
 

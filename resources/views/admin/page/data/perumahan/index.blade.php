@@ -1,6 +1,6 @@
 @extends('admin.navbar')
 
-@section('titleAdmin', 'Agent')
+@section('titleAdmin', 'Perumahan')
 
 @section('page')
 

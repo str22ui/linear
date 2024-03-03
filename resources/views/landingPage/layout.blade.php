@@ -9,10 +9,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
+
     <title>@yield('titleLandingPage')</title>
 
 </head>
@@ -26,7 +31,7 @@
 
                 </a>
                 <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                    @if (Auth::user('guest'))
+                    {{-- @if (Auth::user('guest'))
                         <a href="/logout"
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Logout
@@ -36,7 +41,7 @@
                             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Login
                         </a>
-                    @endif
+                    @endif --}}
                     {{-- <button type="button"
                         class="text-white   bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                         href="/loginUser">Login</button> --}}
@@ -128,10 +133,7 @@
                                 <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Digital Media
                                     Development</a>
                             </li>
-                            <li>
-                                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Advertising
-                                    Development</a>
-                            </li>
+                            
                         </ul>
                     </div>
                     <div>
@@ -173,6 +175,9 @@
         </div>
     </footer>
 
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -210,6 +215,8 @@
             }
         });
     </script>
+   
+
 </body>
 
 </html>

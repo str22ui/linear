@@ -27,12 +27,11 @@ class KonsumenController extends Controller
         if ($request->input('agent_id') == 'pilih') {
             $validatedData['agent_id'] = null;
         }
-        if($request->input('kantor') == 'pilih'){
+        if ($request->input('kantor') == 'pilih') {
             $validatedData['kantor'] = null;
         }
-            
+
         Konsumen::create($validatedData);
-        // return redirect('form/download/'. $unit->id);
         return redirect()->route('download.form', ['id' => $unit->id]);
     }
 }
