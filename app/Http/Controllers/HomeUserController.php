@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Team;
 use App\Models\Unit;
 use App\Models\Agent;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
@@ -36,16 +37,6 @@ class HomeUserController extends Controller
         return view('landingPage.micro.form', [
             'units' => Unit::findOrFail($id),
             'agents' => Agent::all(),
-        ]);
-    }
-
-    public function downloadPDF($id)
-    {
-        $unit = Unit::findOrFail($id);
-
-        return Response::make($unit->brosur, 200, [
-            'Content-Type' => 'application/pdf',
-            'Content-Disposition' => 'inline; filename="' . $unit->nama_perumahan . '.pdf"',
         ]);
     }
 }

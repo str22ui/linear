@@ -13,7 +13,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Perumahan</h6>
         </div>
         <div class="card-body">
-            <form action="/perumahan/create" method="POST" class="row g-3">
+            <form action="/perumahan/create" method="POST" class="row g-3" enctype="multipart/form-data">
                 @csrf
                 <!-- Bagian kiri form -->
                 <div class="col-md-6">
