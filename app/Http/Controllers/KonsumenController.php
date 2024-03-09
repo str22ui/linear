@@ -10,10 +10,7 @@ use Illuminate\Database\QueryException;
 
 class KonsumenController extends Controller
 {
-    public function agent()
-    {
-        return $this->belongsTo(Agent::class, 'id');
-    }
+ 
     public function store(Request $request, $id)
     {
         $validatedData = $request->validate([

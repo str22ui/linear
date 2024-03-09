@@ -41,9 +41,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pembangunan', [AdminController::class, 'pembangunan'])->middleware('userAkses:admin');
 
     Route::post('/perumahan/create', [PerumahanController::class, 'store']);
+    // Route::post('/perumahan/{id}', [AdminController::class, 'editPerumahan'])->middleware('userAkses:admin');
+    // Route::post('/perumahan/update/{id}', [AdminController::class, 'updatePerumahan']);
+    // Route::delete('/perumahan/{id}', [AdminController::class, 'deletePerumahan'])->middleware('userAkses:admin');
     Route::post('/perumahan/{id}', [AdminController::class, 'editPerumahan'])->middleware('userAkses:admin');
     Route::post('/perumahan/update/{id}', [AdminController::class, 'updatePerumahan']);
-    Route::delete('/perumahan/{id}', [AdminController::class, 'deletePerumahan'])->middleware('userAkses:admin');
 });
 
 Route::get('/loginUser', [AuthController::class, 'login'])->name('login')->middleware('guest');

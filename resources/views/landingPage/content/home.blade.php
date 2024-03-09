@@ -41,42 +41,53 @@
         <div class="text-center mb-10">
             <h1 class="text-3xl font-bold">Our Ongoing Projects</h1>
         </div>
-        <div class="flex space-x-3 justify-center items-center">
-            @foreach ($unit as $item)
-                <div
-                    class="max-w-sm bg-[#D4E1FF] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        @if ($item->foto)
-                            <img class="rounded-t-lg" src="{{ asset('storage/' . $item->foto) }}" alt="" />
-                        @else
-                            <img src="https://source.unsplash.com/1417x745/?house" class="d-block w-100 rounded-4"
-                                alt="...">
-                        @endif
-                    </a>
-                    <div class="p-5">
-                        <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                {{ $item->nama_perumahan }}
-                            </h5>
+        <div class="flex justify-center items-center">
+            <div class="flex space-x-3">
+                @foreach ($unit as $item)
+                    <div
+                        class="max-w-sm bg-[#D4E1FF] border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <a href="#" class="image-container">
+                            @if ($item->foto)
+                                <img class="rounded-t-lg" src="{{ asset('storage/' . $item->foto) }}" alt=""
+                                     />
+                            @else
+                                <img src="https://source.unsplash.com/1417x745/?house" class="d-block w-100 rounded-4"
+                                 alt="...">
+                            @endif
                         </a>
-                        <ul class="text-xl ">
-                            <li><i class="fa-solid fa-landmark-flag mr-3"></i><label for="">{{ $item->luas }}
-                                    m<sup>2</sup></label></li>
-                            <li><i class="fa-solid fa-house mr-3"></i><label for="">{{ $item->unit }} Unit</label>
-                            </li>
-                            <li><i class="fa-solid fa-location-dot ml-1 mr-4 "></i><label
-                                    for="">{{ $item->lokasi }}</label></li>
-                        </ul>
-                        <div class="text-center mt-8 ">
-                            <a href="/form/{{ $item->id }}"
-                                class="flex w-full  items-center justify-center px-3 py-2 text-xl font-medium  text-white bg-blue-700 rounded-2xl hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Download Marketing Kit
+                        <div class="p-5">
+                            <a href="#">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                    {{ $item->nama_perumahan }}</h5>
                             </a>
+                            <ul class="text-xl ">
+                                <li><i class="fa-solid fa-landmark-flag mr-3"></i><label for="">{{ $item->luas }}
+                                        m<sup>2</sup></label></li>
+                                <li><i class="fa-solid fa-house mr-3"></i><label for="">{{ $item->unit }}
+                                        Unit</label></li>
+                                <li><i class="fa-solid fa-location-dot ml-1 mr-4 "></i><label
+                                        for="">{{ $item->lokasi }}</label></li>
+
+                            </ul>
+                            <div class="text-center mt-8 ">
+                                @if ($item->status !== 'sold out')
+                                    <a href="/form/{{ $item->id }}"
+                                        class="flex w-full items-center justify-center px-3 py-2 text-xl font-medium text-white bg-blue-700 rounded-2xl hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Download Marketing Kit
+                                    </a>
+                                @else
+                                    <button disabled
+                                        class="flex w-full items-center justify-center px-3 py-2 text-xl font-medium text-white bg-gray-400 rounded-2xl cursor-not-allowed">
+                                        Sold Out
+                                    </button>
+                                @endif
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
+
     </div>
     {{-- ============== /Our Ongoing Projects/ ============== --}}
 

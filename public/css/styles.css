@@ -34,6 +34,21 @@
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 200px; 
+    overflow: hidden; /* Ensure the image doesn't overflow the container */
+}
+
+.image-container img {
+    object-fit: cover; /* Ensure the image covers the entire container */
+    width: 100%; /* Make the image fill the container horizontally */
+    height: 100%; /* Make the image fill the container vertically */
+}
+
 /* .swiper {
     width: 100%;
 }

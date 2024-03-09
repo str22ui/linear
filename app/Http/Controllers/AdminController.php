@@ -7,6 +7,7 @@ use App\Models\Unit;
 use App\Models\Konsumen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
@@ -92,15 +93,25 @@ class AdminController extends Controller
     }
     public function updatePerumahan(Request $request, $id)
     {
-        // Find the agent by id
+        // Find the unit by id
         $unit = Unit::find($id);
 
-        // Update the agent's data
+        // Check if the unit exists
+        if (!$unit) {
+            // Handle the case where the unit with the given ID does not exist
+            return redirect()->back()->with('error', 'Unit not found.');
+        }
+        $request->validate([
+            'status' => ['required', Rule::in(['available', 'sold out'])],
+        ]);
+        // Update the unit's data
         $unit->foto = $request->input('foto');
         $unit->nama_perumahan = $request->input('nama_perumahan');
         $unit->luas = $request->input('luas');
         $unit->unit = $request->input('unit');
         $unit->lokasi = $request->input('lokasi');
+        $unit->status = $request->input('status');
+
         $unit->brosur = $request->input('brosur');
 
         // Save the changes to the database
@@ -109,6 +120,7 @@ class AdminController extends Controller
         // Redirect back or to any other page
         return redirect('/dashPerumahan');
     }
+
 
     public function deletePerumahan($id)
     {

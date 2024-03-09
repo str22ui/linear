@@ -66,8 +66,14 @@
                                     <td>{{ $konsum->pekerjaan }}</td>
                                     <td>{{ $konsum->nama_kantor }}</td>
                                     <td>{{ $konsum->sumber_informasi }}</td>
-                                    <td>{{ $konsum->agent_id }}</td>
-                                    <td>{{ $konsum->agent ? $konsum->agent->nama : 'Tidak Ada' }}</td>
+                                    
+                                    <td>
+                                        @if ($konsum->agent)
+                                            {{ $konsum->agent->nama }}
+                                        @else
+                                            No Agent Assigned
+                                        @endif
+                                    </td>
                                     <td>{{ $konsum->kantor }}</td>
                                     <td>{{ \Carbon\Carbon::parse($konsum->created_at)->format('d/m/Y') }}</td>
                                     <td>
@@ -77,7 +83,6 @@
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
                                     </td>
-                                    
                             @endforeach
                             </tr>
 

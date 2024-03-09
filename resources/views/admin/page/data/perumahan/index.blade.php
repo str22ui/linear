@@ -31,6 +31,7 @@
                                 <th>Brosur</th>
                                 <th>Pricelist</th>
                                 <th>Tanggal</th>
+                                <th>Status</th>
                                 <th>Opsi</th>
 
                             </tr>
@@ -44,10 +45,10 @@
                                 <th>Luas</th>
                                 <th>Unit</th>
                                 <th>Lokasi</th>
-
                                 <th>Brosur</th>
                                 <th>Pricelist</th>
                                 <th>Tanggal</th>
+                                <th>Status</th>
                                 <th>Opsi</th>
 
                             </tr>
@@ -82,12 +83,14 @@
                                     {{-- <td>{{ $unit->pricelist }}</td> --}}
                                     <td>
                                         @if ($unit->pricelist)
-                                            <a href="{{ asset('storage/' . $unit->brosur) }}" target="_blank">Download Brosur</a>
+                                            <a href="{{ asset('storage/' . $unit->brosur) }}" target="_blank">Download
+                                                Brosur</a>
                                         @else
                                             Tidak Ada Brosur
                                         @endif
                                     </td>
                                     <td>{{ \Carbon\Carbon::parse($unit->created_at)->format('d/m/Y') }}</td>
+                                    <td>{{ $unit->status }}</td>
                                     <td>
                                         <form method="POST" action="/perumahan/{{ $unit->id }}">
                                             @csrf
