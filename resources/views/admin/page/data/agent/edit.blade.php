@@ -73,18 +73,18 @@
                         <a class="collapse-item" href="/dashPerumahan">Perumahan</a>
                         <a class="collapse-item" href="/dashKonsumen">Konsumen</a>
                         <a class="collapse-item" href="/dashAgent">Agent</a>
-                       
+
                     </div>
                 </div>
             </li>
 
-          
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-          
+
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -202,14 +202,19 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 ">
-                           
+
+                            <button type="button" class="btn btn-danger  " data-toggle="modal"
+                                data-target="#deleteModal">
+                                Delete
+                            </button>
+                            {{--                             
                             <form action="/agent/{{ $agent->id }}" method="POST" class="row g-3">
                                 @csrf
                                 @method('DELETE')
                                 <div class="col-12 text-right">
                                     <button type="submit" class="btn btn-danger ">Hapus</button>
                                 </div>
-                            </form>
+                            </form> --}}
 
                         </div>
                         <div class="card-body">
@@ -282,7 +287,27 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Penghapusan</h5>
+                    {{-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> --}}
+                </div>
+                <div class="modal-body">
+                    Apakah Anda yakin ingin menghapus data ini?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <form action="/agent/delete/{{ $agent->id }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -331,7 +356,18 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+    <script>
+        document.getElementById('tipe').addEventListener('change', function() {
+            var kantorInput = document.getElementById('kantor');
+            if (this.value === 'perorangan') {
+                kantorInput.value = 'N/A';
+                kantorInput.disabled = true;
+            } else {
+                kantorInput.value = '';
+                kantorInput.disabled = false;
+            }
+        });
+    </script>
 </body>
 
 </html>

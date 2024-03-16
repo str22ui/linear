@@ -320,7 +320,23 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+    {{-- <script>
+        function changeStyle() {
+            var selectElement = document.getElementById("status");
+            var selectedOption = selectElement.options[selectElement.selectedIndex].value;
+            if (selectedOption === "Available") {
+                selectElement.style.backgroundColor = "blue";
+                selectElement.style.color = "white"; // Set text color to white
+            } else if (selectedOption === "Sold Out") {
+                selectElement.style.backgroundColor = "red";
+                selectElement.style.color = "white"; // Set text color to white
+            } else {
+                // Reset to default background color and text color if neither "Available" nor "Sold Out"
+                selectElement.style.backgroundColor = "";
+                selectElement.style.color = "";
+            }
+        }
+    </script> --}}
 </body>
 
 </html>

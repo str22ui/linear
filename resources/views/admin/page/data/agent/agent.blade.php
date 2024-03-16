@@ -38,7 +38,7 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="kantor" class="form-label">Kantor Agent</label>
-                        <input type="text" class="form-control" id="kantor" name="kantor">
+                        <input type="text" class="form-control" id="kantor" name="kantor" >
                     </div>
                     <div class="mb-3">
                         <label for="no_hp" class="form-label">Nomor Telepon Agent</label>
@@ -53,5 +53,16 @@
             </form>
         </div>
     </div>
-
+    <script>
+        document.getElementById('tipe').addEventListener('change', function() {
+            var kantorInput = document.getElementById('kantor');
+            if (this.value === 'perorangan') {
+                kantorInput.value = 'N/A';
+                kantorInput.disabled = true;
+            } else {
+                kantorInput.value = '';
+                kantorInput.disabled = false;
+            }
+        });
+    </script>
 @endsection

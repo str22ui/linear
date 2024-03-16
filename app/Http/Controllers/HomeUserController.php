@@ -11,7 +11,7 @@ class HomeUserController extends Controller
 {
     public function index()
     {
-        $unit = Unit::latest()->paginate(3);
+        $unit = Unit::latest()->paginate(10);
         return view('landingPage.content.home', [
             'unit' => $unit,
         ]);

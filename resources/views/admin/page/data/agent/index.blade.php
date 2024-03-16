@@ -43,22 +43,34 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($agents as $agent)
+                            @if ($agents->count() > 0)
+                                @foreach ($agents as $agent)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $agent->nama }}</td>
+                                        <td>
+                                            @if ($agent->kantor)
+                                                {{ $agent->kantor }}
+                                            @else
+                                                N/A
+                                            @endif
+                                        </td>
+                                        <td>{{ $agent->tipe }}</td>
+                                        <td>{{ $agent->no_hp }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($agent->created_at)->format('d/m/Y') }}</td>
+                                        <td>
+                                            <form method="POST" action="/agent/{{ $agent->id }}">
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary">Edit</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $agent->nama }}</td>
-                                    <td>{{ $agent->kantor }}</td>
-                                    <td>{{ $agent->tipe }}</td>
-                                    <td>{{ $agent->no_hp }}</td>
-                                    <td>{{ \Carbon\Carbon::parse($agent->created_at)->format('d/m/Y') }}</td>
-                                    <td>
-                                        <form method="POST" action="/agent/{{ $agent->id }}">
-                                            @csrf
-                                            <button type="submit" class="btn btn-primary">Edit</button>
-                                        </form>
-                                    </td>
-                            @endforeach
-
+                                    <td colspan="8">Tidak ada data agent yang tersedia.</td>
+                                </tr>
+                            @endif
                         </tbody>
                     </table>
                 </div>

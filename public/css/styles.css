@@ -1,3 +1,5 @@
+
+
 .form-select {
     display: block;
     width: 100%;
@@ -38,15 +40,85 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: 200px; 
-    overflow: hidden; /* Ensure the image doesn't overflow the container */
+    width: auto;
+    height: auto;
+    overflow: hidden;
 }
 
 .image-container img {
     object-fit: cover; /* Ensure the image covers the entire container */
     width: 100%; /* Make the image fill the container horizontally */
     height: 100%; /* Make the image fill the container vertically */
+}
+#info-input {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#info-input label {
+    flex: 1 0 calc(50% - 10px); /* 50% width for each label on desktop */
+    margin-right: 10px; /* Adjust margin between labels */
+}
+
+@media (max-width: 767px) {
+    #info-input {
+        flex-direction: column; /* Change to column layout for mobile */
+        gap: 0.2rem; /* Adjust space between items for mobile */
+    }
+
+    #info-input label {
+        flex: none; /* Disable flex-grow for mobile */
+    }
+}
+.slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slider img {
+    width: 100%; /* Gambar akan mengisi lebar slider */
+    height: auto; /* Ketinggian akan disesuaikan agar tidak terdistorsi */
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon input {
+    padding-left: 2.5rem; /* Atur padding kiri agar ikon terpisah dari teks */
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem; /* Sesuaikan posisi ikon */
+    transform: translateY(-50%);
+}
+
+/* Atur ukuran ikon */
+.input-with-icon .icon i {
+    font-size: 1rem;
+    color: #a0aec0; /* Sesuaikan warna ikon */
 }
 
 /* .swiper {

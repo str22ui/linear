@@ -27,7 +27,7 @@
                                 <th>Luas</th>
                                 <th>Unit</th>
                                 <th>Lokasi</th>
-
+                                <th>Kota</th>
                                 <th>Brosur</th>
                                 <th>Pricelist</th>
                                 <th>Tanggal</th>
@@ -45,6 +45,7 @@
                                 <th>Luas</th>
                                 <th>Unit</th>
                                 <th>Lokasi</th>
+                                <th>Kota</th>
                                 <th>Brosur</th>
                                 <th>Pricelist</th>
                                 <th>Tanggal</th>
@@ -71,7 +72,7 @@
                                     <td>{{ $unit->luas }}</td>
                                     <td>{{ $unit->unit }}</td>
                                     <td>{{ $unit->lokasi }}</td>
-                                    {{-- <td>{{ $unit->brosur }}</td> --}}
+                                    <td>{{ $unit->kota }}</td>
                                     <td>
                                         @if ($unit->brosur)
                                             <a href="{{ asset('storage/' . $unit->brosur) }}" target="_blank">Download
@@ -83,7 +84,7 @@
                                     {{-- <td>{{ $unit->pricelist }}</td> --}}
                                     <td>
                                         @if ($unit->pricelist)
-                                            <a href="{{ asset('storage/' . $unit->brosur) }}" target="_blank">Download
+                                            <a href="{{ asset('storage/' . $unit->pricelist) }}" target="_blank">Download
                                                 Brosur</a>
                                         @else
                                             Tidak Ada Brosur

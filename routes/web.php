@@ -27,7 +27,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/agent/create', [AdminController::class, 'store'])->middleware('userAkses:admin');
     Route::post('/agent/{id}', [AdminController::class, 'editAgent'])->middleware('userAkses:admin');
     Route::post('/agent/update/{id}', [AdminController::class, 'updateAgent']);
-    Route::delete('/agent/{id}', [AdminController::class, 'deleteAgent'])->middleware('userAkses:admin');
+    Route::delete('/agent/delete/{id}', [AdminController::class, 'deleteAgent'])->middleware('userAkses:admin');
 
     Route::get('/dashPerumahan', [AdminController::class, 'dashPerumahan'])->middleware('userAkses:admin');
     Route::get('/perumahan', [AdminController::class, 'perumahan'])->middleware('userAkses:admin');
@@ -36,7 +36,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashKonsumen', [AdminController::class, 'dashKonsum'])->middleware('userAkses:admin');
     // Route::delete('/konsumen/{id}', [AdminController::class, 'deleteKonsumen'])->middleware('userAkses:admin');
-    Route::delete('/konsumen/{id}', [AdminController::class, 'deleteKonsumen'])->name('konsumen.destroy')->middleware('userAkses:admin');
+    Route::delete('/konsumen/delete/{id}', [AdminController::class, 'deleteKonsumen'])->name('konsumen.destroy')->middleware('userAkses:admin');
+
+
+    Route::post('/exportData', [AdminController::class, 'exportToExcel']);
 
     Route::get('/pembangunan', [AdminController::class, 'pembangunan'])->middleware('userAkses:admin');
 
@@ -44,6 +47,10 @@ Route::middleware(['auth'])->group(function () {
     // Route::post('/perumahan/{id}', [AdminController::class, 'editPerumahan'])->middleware('userAkses:admin');
     // Route::post('/perumahan/update/{id}', [AdminController::class, 'updatePerumahan']);
     // Route::delete('/perumahan/{id}', [AdminController::class, 'deletePerumahan'])->middleware('userAkses:admin');
+
+    // Route::delete('/perumahan/delete/{id}', 'AdminController@deletePerumahan');
+    Route::delete('/perumahan/delete/{id}', [AdminController::class, 'deletePerumahan'])->name('perumahan.destroy');
+
     Route::post('/perumahan/{id}', [AdminController::class, 'editPerumahan'])->middleware('userAkses:admin');
     Route::post('/perumahan/update/{id}', [AdminController::class, 'updatePerumahan']);
 });
@@ -66,3 +73,6 @@ Route::get('/download-brosur/{id}', [PerumahanController::class, 'downloadBrosur
 Route::get('/download-pricelist/{id}', [PerumahanController::class, 'downloadPricelist'])->name('download.pricelist');
 
 Route::post('/form-create/{id}', [KonsumenController::class, 'store']);
+
+Route::get('/konsumen/export/excel', [AdminController::class, 'exportExcel'])->name('konsumen.export.excel');
+

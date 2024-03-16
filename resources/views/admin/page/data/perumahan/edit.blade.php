@@ -200,15 +200,15 @@
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-
-
-
+                        <div class="card-header py-3 text-right">
+                            <button type="button" class="btn btn-danger  " data-toggle="modal"
+                                data-target="#deleteModal">
+                                Delete
+                            </button>
                         </div>
                         <div class="card-body">
-                            <form action="/perumahan/update/{{ $unit->id }}" method="POST" class="row g-3">
-
-
+                            <form action="/perumahan/update/{{ $unit->id }}" method="POST" class="row g-3"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <!-- Bagian kiri form -->
                                 <div class="col-md-6">
@@ -216,13 +216,17 @@
                                     <select class="form-select" id="status" name="status">
                                         <option value="available"
                                             {{ $unit->status === 'available' ? 'selected' : '' }}>Available</option>
-                                        <option value="Sold out" {{ $unit->status === 'sold' ? 'selected' : '' }}>
+                                        <option value="sold out" {{ $unit->status === 'sold out' ? 'selected' : '' }}>
                                             Sold Out</option>
                                     </select>
                                     <div class="mb-3">
                                         <label for="foto" class="form-label">Foto</label>
-                                        <input type="file" class="form-control" id="foto" name="foto"
-                                            value="{{ asset('storage/' . $unit->foto) }}">
+                                        <input type="file" class="form-control" id="foto" name="foto">
+                                        @if ($unit->foto)
+                                            <input type="hidden" name="old_foto" value="{{ $unit->foto }}">
+                                            <img src="{{ asset($unit->foto) }}" alt="Current Foto"
+                                                style="max-width: 200px; margin-top: 5px;">
+                                        @endif
                                     </div>
                                     <div class="mb-3">
                                         <label for="nama_perumahan" class="form-label">Nama Perumahan</label>
@@ -234,33 +238,43 @@
                                         <input type="text" class="form-control" id="luas" name="luas"
                                             value="{{ $unit->luas }}">
                                     </div>
-
-
-                                </div>
-                                <!-- Bagian kanan form -->
-                                <div class="col-md-6">
-
                                     <div class="mb-3">
                                         <label for="unit" class="form-label">Jumlah Unit</label>
                                         <input type="text" class="form-control" id="unit" name="unit"
                                             value="{{ $unit->unit }}">
                                     </div>
+                                </div>
+                                <!-- Bagian kanan form -->
+                                <div class="col-md-6">
+
                                     <div class="mb-3">
                                         <label for="lokasi" class="form-label">Lokasi</label>
                                         <input type="text" class="form-control" id="lokasi" name="lokasi"
                                             value="{{ $unit->lokasi }}">
                                     </div>
                                     <div class="mb-3">
+                                        <label for="kota" class="form-label">Kota</label>
+                                        <input type="text" class="form-control" id="kota" name="kota"
+                                            value="{{ $unit->kota }}">
+                                    </div>
+                                    <div class="mb-3">
                                         <label for="brosur" class="form-label">Brosur</label>
-                                        <input type="file" class="form-control" id="brosur" name="brosur"
-                                            value="{{ $unit->brosur }}">
+                                        <input type="file" class="form-control" id="brosur" name="brosur">
+                                        @if ($unit->brosur)
+                                            <input type="hidden" name="old_brosur" value="{{ $unit->brosur }}">
+                                            <a href="{{ asset($unit->brosur) }}" target="_blank">View Brosur</a>
+                                        @endif
                                     </div>
                                     <div class="mb-3">
                                         <label for="pricelist" class="form-label">Pricelist</label>
-                                        <input type="file" class="form-control" id="pricelist" name="pricelist"
-                                            value="{{ $unit->pricelist }}">
+                                        <input type="file" class="form-control" id="pricelist" name="pricelist">
+                                        @if ($unit->pricelist)
+                                            <input type="hidden" name="old_pricelist"
+                                                value="{{ $unit->pricelist }}">
+                                            <a href="{{ asset($unit->pricelist) }}" target="_blank">View
+                                                Pricelist</a>
+                                        @endif
                                     </div>
-
                                 </div>
                                 <div class="col-12 text-center">
                                     <button type="submit" class="btn btn-primary btn-block">Update</button>
@@ -268,6 +282,7 @@
 
                             </form>
                         </div>
+
                     </div>
                 </div>
                 <!-- /.container-fluid -->
@@ -290,6 +305,27 @@
 
     </div>
     <!-- End of Page Wrapper -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Penghapusan</h5>
+                    {{-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> --}}
+                </div>
+                <div class="modal-body">
+                    Apakah Anda yakin ingin menghapus data ini?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <form action="/perumahan/delete/{{ $unit->id }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">

@@ -16,81 +16,60 @@
         <div class="card shadow mb-4">
 
             <div class="card-body">
+                <a href="{{ url('konsumen/export/excel') }}">
+                    {{-- <a href="{{ route('konsumen.export.excel') }}"> --}}
+                    <button id="exportButton" class="btn btn-primary mb-4">Export Excel</button>
+                </a>
+
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Perumahan</th>
-                                <th>No hp</th>
-                                <th>Domisili</th>
-                                <th>Email</th>
-                                <th>Pekerjaan</th>
-                                <th>Kantor</th>
-                                <th>Sumber</th>
-                                <th>Agent</th>
-                                <th>Kantor</th>
-                                <th>Tanggal</th>
-                                <th>Opsi</th>
-
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Perumahan</th>
-                                <th>No hp</th>
-                                <th>Domisili</th>
-                                <th>Email</th>
-                                <th>Pekerjaan</th>
-                                <th>Kantor</th>
-                                <th>Sumber</th>
-                                <th>Agent</th>
-                                <th>Kantor</th>
-                                <th>Tanggal</th>
-                                <th>Opsi</th>
-
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            @foreach ($konsumen as $konsum)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $konsum->nama }}</td>
-                                    <td>{{ $konsum->perumahan }}</td>
-                                    <td>{{ $konsum->no_hp }}</td>
-                                    <td>{{ $konsum->domisili }}</td>
-                                    <td>{{ $konsum->email }}</td>
-                                    <td>{{ $konsum->pekerjaan }}</td>
-                                    <td>{{ $konsum->nama_kantor }}</td>
-                                    <td>{{ $konsum->sumber_informasi }}</td>
-                                    
-                                    <td>
-                                        @if ($konsum->agent)
-                                            {{ $konsum->agent->nama }}
-                                        @else
-                                            No Agent Assigned
-                                        @endif
-                                    </td>
-                                    <td>{{ $konsum->kantor }}</td>
-                                    <td>{{ \Carbon\Carbon::parse($konsum->created_at)->format('d/m/Y') }}</td>
-                                    <td>
-                                        <form action="{{ route('konsumen.destroy', $konsum->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </td>
-                            @endforeach
-                            </tr>
-
-                        </tbody>
-                    </table>
+                    @include('admin.page.data.konsumen.table', $konsumen)
                 </div>
             </div>
         </div>
     </div>
+
+    </div>
+    <!-- Letakkan di dalam bagian head -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Fungsi untuk mengonversi tabel HTML menjadi file Excel
+            function exportTableToExcel(tableID, filename = '') {
+                var downloadLink;
+                var dataType = 'application/vnd.ms-excel';
+                var tableSelect = document.getElementById(tableID);
+                var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+                // Spesifikasi format file dan nama file
+                filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+                // Buat link unduhan
+                downloadLink = document.createElement("a");
+
+                document.body.appendChild(downloadLink);
+
+                if (navigator.msSaveOrOpenBlob) {
+                    var blob = new Blob(['\ufeff', tableHTML], {
+                        type: dataType
+                    });
+                    navigator.msSaveOrOpenBlob(blob, filename);
+                } else {
+                    // Buat link unduhan
+                    downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+                    // Nama file
+                    downloadLink.download = filename;
+
+                    // Trigger click pada link unduhan
+                    downloadLink.click();
+                }
+            }
+
+            // Event handler untuk tombol "Export to Excel"
+            $('#exportButton').click(function() {
+                exportTableToExcel('dataTable', 'konsumen_data');
+            });
+        });
+    </script>
 
 @endsection

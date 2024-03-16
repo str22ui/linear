@@ -19,6 +19,7 @@ class PerumahanController extends Controller
             'luas' => 'required',
             'unit' => 'required',
             'lokasi' => 'required',
+            'kota' => 'required',
             'status' => 'required',
             'brosur' => 'required|file|max:20480|mimes:pdf,doc,docx,ppt,pptx',
             'pricelist' => 'required|file|max:20480|mimes:pdf,doc,docx,ppt,pptx'

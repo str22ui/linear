@@ -15,7 +15,8 @@ class KonsumenController extends Controller
     {
         $validatedData = $request->validate([
             'nama' => 'required',
-            'email' => 'required|email',
+            // 'email' => 'required|email',
+            'email' => 'nullable',
             'no_hp' => 'required',
             'domisili' => 'required',
             'pekerjaan' => 'required',
